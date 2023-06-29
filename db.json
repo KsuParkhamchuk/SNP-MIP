@@ -1,51 +1,81 @@
 {
   "clients": [
     {
-      "id": "bc6ab1e9-2f49-421c-b0f3-f8846aac2d07",
-      "name": "Client #2"
+      "id": "bba5d99a-0d34-4534-9b85-92d53e7eac08",
+      "name": "Osvaldo"
     },
     {
-      "id": "16ae0b67-0a19-4f22-85a3-16ac1e95e8fb",
-      "name": "Client #3"
+      "id": "240198a8-6f31-4000-a849-d78dbf96b43b",
+      "name": "Lucile"
     },
     {
-      "id": "bbfae7ed-0b33-441a-b2b2-c286a5c82f92",
-      "name": "Mohamed"
+      "id": "58ac546f-549f-4689-bd29-be7b2e300f98",
+      "name": "Norris"
+    },
+    {
+      "id": "c420671a-0676-4ae3-969a-957b16e15836",
+      "name": "Kim"
+    },
+    {
+      "id": "34d20c09-7f4a-4af3-b316-9c220b30d302",
+      "name": "Nathanial"
     }
   ],
   "reports": [
     {
-      "id": "ce6a637e-4199-47b6-add1-dad610f068d3",
-      "clientId": "16ae0b67-0a19-4f22-85a3-16ac1e95e8fb"
-    },
-    {
-      "id": "04a8a836-3a72-4c86-8cfe-6a0ad80c76ce",
-      "clientId": "16ae0b67-0a19-4f22-85a3-16ac1e95e8fb"
-    },
-    {
-      "id": "0d9ca79e-0b6f-48d0-9a72-d80a01195305",
-      "clientId": "16ae0b67-0a19-4f22-85a3-16ac1e95e8fb"
-    },
-    {
-      "id": "4f49b0d3-f82a-4a0c-95ac-7136843283f2",
-      "clientId": "16ae0b67-0a19-4f22-85a3-16ac1e95e8fb"
-    },
-    {
-      "id": "6f44e32a-de74-40c0-bff7-7bfbdd285e62",
-      "clientId": "bc6ab1e9-2f49-421c-b0f3-f8846aac2d07",
+      "id": "813b7329-a165-48c3-a87c-4e4614c02c7c",
+      "clientId": "240198a8-6f31-4000-a849-d78dbf96b43b",
       "data": []
     },
     {
-      "id": "8dd06cfa-b0d4-42b7-878a-4d8a09bfac15",
-      "clientId": "bbfae7ed-0b33-441a-b2b2-c286a5c82f92",
+      "id": "89b6786a-d085-4969-beec-0347c837edd7",
+      "clientId": "bba5d99a-0d34-4534-9b85-92d53e7eac08",
+      "data": []
+    },
+    {
+      "id": "a8b69518-0bc5-4051-9040-9702ce3ef703",
+      "clientId": "c420671a-0676-4ae3-969a-957b16e15836",
       "data": []
     }
   ],
   "reportsData": [
     {
-      "id": "dcadb2d7-addf-4405-bd2c-d7f591ec0795",
-      "reportId": "ce6a637e-4199-47b6-add1-dad610f068d3",
-      "type": "bar",
+      "id": "39547802-04df-44a2-8136-58f7a1de6d2c",
+      "reportId": "813b7329-a165-48c3-a87c-4e4614c02c7c",
+      "type": "area",
+      "chartData": {
+        "labels": [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July"
+        ],
+        "datasets": [
+          {
+            "fill": true,
+            "label": "Dataset 2",
+            "data": [
+              234,
+              331,
+              889,
+              460,
+              620,
+              398,
+              659
+            ],
+            "borderColor": "rgb(53, 162, 235)",
+            "backgroundColor": "rgba(53, 162, 235, 0.5)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "88e3a328-cb67-4e4f-b3fe-9698fa397610",
+      "reportId": "89b6786a-d085-4969-beec-0347c837edd7",
+      "type": "line",
       "chartData": {
         "labels": [
           "January",
@@ -59,25 +89,85 @@
         "datasets": [
           {
             "label": "Dataset 1",
-            "backgroundColor": "rgb(255, 99, 132)",
-            "borderColor": "rgb(255, 99, 132)",
             "data": [
-              0,
-              10,
-              5,
-              2,
-              20,
-              30,
-              45
-            ]
+              308,
+              810,
+              450,
+              274,
+              -945,
+              -362,
+              -83
+            ],
+            "borderColor": "rgb(255, 99, 132)",
+            "backgroundColor": "rgba(255, 99, 132, 0.5)"
+          },
+          {
+            "label": "Dataset 2",
+            "data": [
+              638,
+              38,
+              -637,
+              328,
+              584,
+              397,
+              926
+            ],
+            "borderColor": "rgb(53, 162, 235)",
+            "backgroundColor": "rgba(53, 162, 235, 0.5)"
           }
         ]
       }
     },
     {
-      "id": "0fd42bfc-c08e-4020-a8c8-460676a2bee0",
-      "reportId": "4f49b0d3-f82a-4a0c-95ac-7136843283f2",
+      "id": "9d08f894-26b9-4570-84d4-587738dbfdfd",
+      "reportId": "a8b69518-0bc5-4051-9040-9702ce3ef703",
       "type": "line",
+      "chartData": {
+        "labels": [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July"
+        ],
+        "datasets": [
+          {
+            "label": "Dataset 1",
+            "data": [
+              521,
+              -200,
+              -224,
+              170,
+              -337,
+              -868,
+              -979
+            ],
+            "borderColor": "rgb(255, 99, 132)",
+            "backgroundColor": "rgba(255, 99, 132, 0.5)"
+          },
+          {
+            "label": "Dataset 2",
+            "data": [
+              56,
+              -702,
+              -889,
+              -74,
+              -181,
+              247,
+              934
+            ],
+            "borderColor": "rgb(53, 162, 235)",
+            "backgroundColor": "rgba(53, 162, 235, 0.5)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a57d002d-20b8-47ce-9efc-32fd15026fb8",
+      "reportId": "a8b69518-0bc5-4051-9040-9702ce3ef703",
+      "type": "pie",
       "chartData": {
         "labels": [
           "January",
@@ -92,12 +182,12 @@
           {
             "label": "# of Votes",
             "data": [
-              12,
-              19,
-              3,
-              5,
-              2,
-              3
+              924888646811648,
+              2459682685845504,
+              8885563023163392,
+              8875820034555904,
+              2536160840646656,
+              2544894987993088
             ],
             "backgroundColor": [
               "rgba(255, 99, 132, 0.2)",

@@ -10,7 +10,7 @@ interface AccordionProps {
   innerText: string
   onBtnClick: (e: React.MouseEvent<HTMLButtonElement>, id?: string) => any
   onDeleteBtnClick: () => any
-  children?: ReactElement[]
+  children?: ReactElement[] | ReactElement
 }
 
 export const Accordion: React.FC<AccordionProps> = ({
@@ -27,8 +27,8 @@ export const Accordion: React.FC<AccordionProps> = ({
         <>
           <h3 className={styles.accordion__header}>
             <Disclosure.Button className={styles.accordion__headerButton}>
-              <div className="flex items-center">
-                <span className="flex items-center">
+              <div className={styles.mFlexCenter}>
+                <span className={styles.mFlexCenter}>
                   {open
                     ? (
                     <ChevronUpIcon className={styles.accordion__headerIcon} aria-hidden="true"/>
