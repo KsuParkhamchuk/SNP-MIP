@@ -1,0 +1,35 @@
+.search {
+    @apply relative
+}
+.search__icon {
+    @apply absolute
+    top-0
+    right-0
+    p-2.5
+    text-sm
+    font-medium
+    rounded-r-lg
+    hover:bg-blue-800
+    focus:ring-4
+    focus:outline-none
+    focus:ring-blue-300
+    dark:bg-blue-600
+    dark:hover:bg-blue-700
+    dark:focus:ring-blue-800
+}
+
+.search__input {
+    @apply block
+    p-2.5
+    w-60
+    text-sm
+    text-gray-900
+    bg-gray-50
+    rounded-lg
+    border-gray-50
+    border-l-2
+    border
+    border-gray-300
+    focus:ring-blue-500
+    focus:border-blue-500
+}
