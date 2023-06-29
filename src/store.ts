@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { clientsApi } from './redux/features/apiSlice'
 
 export const store = configureStore({
-  reducer: {}
+  reducer: {
+    [clientsApi.reducerPath]: clientsApi.reducer
+  }
 })
 
 export type RootState = ReturnType<typeof store.getState>
