@@ -11,13 +11,38 @@
     flow-root
 }
 
-.accordion__header-text {
+.accordion__headerText {
     @apply font-medium
     text-gray-900
 }
 
-.accordion__header-icon {
-    @apply h-4
-    w-4
+.accordion__headerIcon {
+    @apply h-5
+    w-5
+    mr-5
+}
+
+.accordion__headerButton {
+    @apply flex
+    w-full
+    items-center
+    justify-between
+    bg-white
+    px-2
+    py-3
+    text-gray-400
+    hover:text-gray-500
+}
+
+.accordion__panel {
+    @apply p-6
+        mt-6
+    border-2
+}
+
+.accordion__panelContainer {
+    @apply flex
+    justify-between
+    p-6
 }
 

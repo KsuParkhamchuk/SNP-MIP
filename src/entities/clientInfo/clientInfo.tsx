@@ -4,9 +4,18 @@ import { BarChart } from '../../shared/charts/barChart'
 import { LineChart } from '../../shared/charts/lineChart'
 import { PieChart } from '../../shared/charts/pieChart'
 import { AreaChart } from '../../shared/charts/areaChart'
-import { ReactElement } from 'react'
-import { useDeleteClientMutation, useEditClientMutation } from '../../redux/features/apiSlice'
+import React, { ReactElement } from 'react'
+import {
+  useAddReportDataMutation,
+  useAddReportMutation,
+  useDeleteClientMutation, useDeleteReportDataMutation,
+  useDeleteReportMutation,
+  useGetReportDataQuery,
+  useGetReportsQuery
+} from '../../redux/features/apiSlice'
 import { faker } from '@faker-js/faker'
+import { chartDatasets, chartLabels } from '../../data'
+import { XMarkIcon } from '@heroicons/react/24/solid'
 
 interface ClientInfoProps {
   client: Client
@@ -14,51 +23,65 @@ interface ClientInfoProps {
 
 export const ClientInfo: React.FC<ClientInfoProps> = ({ client }) => {
   const [deleteClient] = useDeleteClientMutation()
-  const [updateClient] = useEditClientMutation()
+  const [addReport] = useAddReportMutation()
+  const [deleteReport] = useDeleteReportMutation()
+  const [addReportData] = useAddReportDataMutation()
+  const [deleteReportData] = useDeleteReportDataMutation()
+  const { data: reports } = useGetReportsQuery()
+  const { data: reportData } = useGetReportDataQuery()
 
   const renderClientChart = (reportData: ReportData): ReactElement => {
     switch (reportData.type) {
       case Charts.Bar:
-        return <BarChart key={`${reportData.type}-${reportData.id}`} data={reportData.chartData} />
+        return <div key={`${reportData.type}-${reportData.id}`}>
+          <BarChart data={reportData.chartData}/>
+          <XMarkIcon onClick={async () => await deleteReportData(reportData.id)} className="h-5 w-5" />
+        </div>
       case Charts.Line:
-        return <LineChart key={`${reportData.type}-${reportData.id}`} data={reportData.chartData} />
+        return <div key={`${reportData.type}-${reportData.id}`}>
+          <LineChart data={reportData.chartData}/>
+          <XMarkIcon onClick={async () => await deleteReportData(reportData.id)} className="h-5 w-5" />
+        </div>
       case Charts.Pie:
-        return <PieChart key={`${reportData.type}-${reportData.id}`} data={reportData.chartData} />
+        return <div key={`${reportData.type}-${reportData.id}`}>
+          <PieChart data={reportData.chartData}/>
+          <XMarkIcon onClick={async () => await deleteReportData(reportData.id)} className="h-5 w-5" />
+        </div>
       case Charts.Area:
-        return <AreaChart key={`${reportData.type}-${reportData.id}`} data={reportData.chartData} />
+        return <div key={`${reportData.type}-${reportData.id}`}>
+          <AreaChart data={reportData.chartData}/>
+          <XMarkIcon onClick={async () => await deleteReportData(reportData.id)} className="h-5 w-5" />
+        </div>
       default:
         return <p>No such type of chart</p>
     }
   }
 
   const handleAddDataClick = async (e: React.MouseEvent<HTMLButtonElement>, reportId: string): Promise<void> => {
-    // const randomChartDataIndex = Math.floor(Math.random() * chartDatasets.length)
-    // const chartData = { id: faker.string.uuid(), type: chartDatasets[randomChartDataIndex] }
-    // const updatedClient = {
-    //   ...client,
-    //   reports: client.reports?.map((report) => {
-    //     if (report.id === reportId) {
-    //       return [...report]
-    //     }
-    //   })
-    // }
-    // const updatedClientReport = {
-    //   ...client.reports
-    //
-    // }
-    // try {
-    //   await updateClient({ id: client.id, reports })
-    // } catch (e) {
-    //   console.error('Failed to update client:', e)
-    // }
+    const randomChartDataIndex = Math.floor(Math.random() * chartDatasets.length)
+    const randomDataObject = chartDatasets[randomChartDataIndex]
+    const reportData = {
+      id: faker.string.uuid(),
+      reportId,
+      type: randomDataObject.type,
+      chartData: {
+        labels: chartLabels,
+        datasets: randomDataObject.data
+      }
+    }
+
+    try {
+      await addReportData({ id: reportId, reportData })
+    } catch (error) {
+      console.error('Failed to update client:', error)
+    }
   }
 
   const addNewReport = async (): Promise<void> => {
-    const newReport = { id: faker.string.uuid(), data: [] }
+    const newReport = { id: faker.string.uuid(), clientId: client.id, data: [] }
+
     try {
-      if (client.reports) {
-        await updateClient({ ...client, reports: [...client.reports, newReport] })
-      }
+      await addReport({ id: client.id, report: newReport })
     } catch (error) {
       console.error('Failed to add report:', error)
     }
@@ -78,10 +101,10 @@ export const ClientInfo: React.FC<ClientInfoProps> = ({ client }) => {
         }}
         onDeleteBtnClick={async () => {
           if (report?.id) {
-            await deleteClient(report?.id)
+            await deleteReport(report.id)
           }
         }}>
-        {report?.data.map((reportData) => renderClientChart(reportData))}
+        {reportData?.filter((data: ReportData) => report?.id === data.reportId).map((filteredData) => renderClientChart(filteredData))}
       </Accordion>
     )
   }
@@ -93,7 +116,9 @@ export const ClientInfo: React.FC<ClientInfoProps> = ({ client }) => {
       innerText={`${client.name} reports`}
       onBtnClick={addNewReport}
       onDeleteBtnClick={async () => await deleteClient(client.id)}>
-      {client.reports?.map((report) => renderClientReport(report))}
+      {reports?.filter((report: Report) => client.id === report.clientId).map((clientReport) => renderClientReport(clientReport))}
     </Accordion>
   )
 }
+
+export const MemoizedClientInfo = React.memo(ClientInfo)

@@ -1,16 +1,16 @@
 export interface Client {
   id: string
   name: string
-  reports?: Report[]
 }
 
 export interface Report {
   id: string
-  data: ReportData[]
+  clientId: string
 }
 
 export interface ReportData {
-  id: number
+  id: string
+  reportId: string
   type: string
   chartData: ChartData
 }
@@ -23,8 +23,8 @@ export interface ChartData {
 export interface Dataset {
   label: string
   data: number[]
-  borderColor?: string[]
-  backgroundColor?: string[]
+  borderColor?: string[] | string
+  backgroundColor?: string[] | string
   borderWidth?: number
   fill?: boolean
 }

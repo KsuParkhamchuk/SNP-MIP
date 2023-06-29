@@ -1,3 +1,124 @@
 {
-	"clients": []
+  "clients": [
+    {
+      "id": "bc6ab1e9-2f49-421c-b0f3-f8846aac2d07",
+      "name": "Client #2"
+    },
+    {
+      "id": "16ae0b67-0a19-4f22-85a3-16ac1e95e8fb",
+      "name": "Client #3"
+    },
+    {
+      "id": "bbfae7ed-0b33-441a-b2b2-c286a5c82f92",
+      "name": "Mohamed"
+    }
+  ],
+  "reports": [
+    {
+      "id": "ce6a637e-4199-47b6-add1-dad610f068d3",
+      "clientId": "16ae0b67-0a19-4f22-85a3-16ac1e95e8fb"
+    },
+    {
+      "id": "04a8a836-3a72-4c86-8cfe-6a0ad80c76ce",
+      "clientId": "16ae0b67-0a19-4f22-85a3-16ac1e95e8fb"
+    },
+    {
+      "id": "0d9ca79e-0b6f-48d0-9a72-d80a01195305",
+      "clientId": "16ae0b67-0a19-4f22-85a3-16ac1e95e8fb"
+    },
+    {
+      "id": "4f49b0d3-f82a-4a0c-95ac-7136843283f2",
+      "clientId": "16ae0b67-0a19-4f22-85a3-16ac1e95e8fb"
+    },
+    {
+      "id": "6f44e32a-de74-40c0-bff7-7bfbdd285e62",
+      "clientId": "bc6ab1e9-2f49-421c-b0f3-f8846aac2d07",
+      "data": []
+    },
+    {
+      "id": "8dd06cfa-b0d4-42b7-878a-4d8a09bfac15",
+      "clientId": "bbfae7ed-0b33-441a-b2b2-c286a5c82f92",
+      "data": []
+    }
+  ],
+  "reportsData": [
+    {
+      "id": "dcadb2d7-addf-4405-bd2c-d7f591ec0795",
+      "reportId": "ce6a637e-4199-47b6-add1-dad610f068d3",
+      "type": "bar",
+      "chartData": {
+        "labels": [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July"
+        ],
+        "datasets": [
+          {
+            "label": "Dataset 1",
+            "backgroundColor": "rgb(255, 99, 132)",
+            "borderColor": "rgb(255, 99, 132)",
+            "data": [
+              0,
+              10,
+              5,
+              2,
+              20,
+              30,
+              45
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "0fd42bfc-c08e-4020-a8c8-460676a2bee0",
+      "reportId": "4f49b0d3-f82a-4a0c-95ac-7136843283f2",
+      "type": "line",
+      "chartData": {
+        "labels": [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July"
+        ],
+        "datasets": [
+          {
+            "label": "# of Votes",
+            "data": [
+              12,
+              19,
+              3,
+              5,
+              2,
+              3
+            ],
+            "backgroundColor": [
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(255, 206, 86, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(153, 102, 255, 0.2)",
+              "rgba(255, 159, 64, 0.2)"
+            ],
+            "borderColor": [
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+              "rgba(255, 159, 64, 1)"
+            ],
+            "borderWidth": 1
+          }
+        ]
+      }
+    }
+  ]
 }

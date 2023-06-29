@@ -26,24 +26,24 @@ export const Accordion: React.FC<AccordionProps> = ({
       {({ open }) => (
         <>
           <h3 className={styles.accordion__header}>
-            <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-              <div className="ml-6 flex items-center">
-                <span className="ml-6 flex items-center">
+            <Disclosure.Button className={styles.accordion__headerButton}>
+              <div className="flex items-center">
+                <span className="flex items-center">
                   {open
                     ? (
-                    <ChevronUpIcon className={styles.accordion__headerIcon} aria-hidden="true" />
+                    <ChevronUpIcon className={styles.accordion__headerIcon} aria-hidden="true"/>
                       )
                     : (
-                    <ChevronDownIcon className={styles.accordion__headerIcon} aria-hidden="true" />
+                    <ChevronDownIcon className={styles.accordion__headerIcon} aria-hidden="true"/>
                       )}
                 </span>
                 <span className={styles.accordion__headerText}>{header}</span>
               </div>
-              <XMarkIcon onClick={onDeleteBtnClick} className="h-5 w-5" />
+              <XMarkIcon onClick={onDeleteBtnClick} className={styles.accordion__headerIcon}/>
             </Disclosure.Button>
           </h3>
-          <Disclosure.Panel className="pt-6">
-            <div className="flex justify-between">
+          <Disclosure.Panel className={styles.accordion__panel}>
+            <div className={styles.accordion__panelContainer}>
               <p>{innerText}</p>
               <RoundedButton btnText={btnText} onClick={onBtnClick} />
             </div>

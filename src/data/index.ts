@@ -1,5 +1,4 @@
 import { faker } from '@faker-js/faker'
-import { Charts } from '../types'
 
 export const chartLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July']
 
@@ -61,4 +60,9 @@ export const lineChartDatasets = [
   }
 ]
 
-export const chartDatasets = [{ bar: barChartDatasets }, { line: lineChartDatasets }, { area: areaChartDatasets }, { pie: pieChartDatasets }]
+export const chartDatasets = [
+  { type: 'bar', data: barChartDatasets },
+  { type: 'line', data: lineChartDatasets },
+  { type: 'area', data: areaChartDatasets },
+  { type: 'pie', data: pieChartDatasets }
+]

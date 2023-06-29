@@ -1,5 +1,5 @@
 import { Client } from '../../types'
-import { ClientInfo } from '../../entities/clientInfo'
+import { MemoizedClientInfo } from '../../entities/clientInfo'
 
 interface ClientListProps {
   clients: Client[]
@@ -7,6 +7,6 @@ interface ClientListProps {
 
 export const ClientList: React.FC<ClientListProps> = ({ clients }) => {
   return (
-    clients.map((client) => <ClientInfo key={client.id} client={client}/>)
+    clients.map((client) => <MemoizedClientInfo key={client.id} client={client}/>)
   )
 }
